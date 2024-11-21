@@ -1,0 +1,141 @@
+---
+const posts = [
+  {
+    url: '/posts/budget-travel-kids',
+    frontmatter: {
+      title: 'How We Travel with Kids on a Tight Budget',
+      date: '2024-04-15',
+      description: 'Creative ways to explore the world with little ones without breaking the bank.',
+      image: 'https://images.unsplash.com/photo-1488085061387-422e29b40080?w=800'
+    }
+  },
+  {
+    url: '/posts/weekend-crafts',
+    frontmatter: {
+      title: '5 Quick Weekend Crafts You Can Do While the Kids Nap',
+      date: '2024-04-14',
+      description: 'Simple DIY projects that don\'t break the bank or take up your whole day.',
+      image: 'https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=800'
+    }
+  },
+  {
+    url: '/posts/city-breaks',
+    frontmatter: {
+      title: 'City Breaks: Making the Most of Quick Family Getaways',
+      date: '2024-04-10',
+      description: 'How to plan short city adventures that keep both parents and kids happy.',
+      image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800'
+    }
+  },
+  {
+    url: '/posts/upcycling-kids-clothes',
+    frontmatter: {
+      title: 'Upcycling Kids\' Clothes: From Outgrown to Awesome',
+      date: '2024-04-05',
+      description: 'Creative ways to give new life to children\'s outgrown clothes.',
+      image: 'https://images.unsplash.com/photo-1445796886651-d31a2c15f3c9?w=800'
+    }
+  },
+  {
+    url: '/posts/budget-home-decor',
+    frontmatter: {
+      title: 'Budget-Friendly Home Decor Ideas',
+      date: '2024-04-01',
+      description: 'Simple ways to refresh your home without spending a fortune.',
+      image: 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800'
+    }
+  },
+  {
+    url: '/posts/family-camping',
+    frontmatter: {
+      title: 'Camping with Toddlers: A Survival Guide',
+      date: '2024-03-28',
+      description: 'Tips and tricks for making camping with little ones actually enjoyable.',
+      image: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800'
+    }
+  },
+  {
+    url: '/posts/meal-prep',
+    frontmatter: {
+      title: 'Family Meal Prep on a Budget',
+      date: '2024-03-25',
+      description: 'How to save time and money while keeping everyone well-fed.',
+      image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=800'
+    }
+  },
+  {
+    url: '/posts/weekend-adventures',
+    frontmatter: {
+      title: 'Turning Weekends into Mini Adventures',
+      date: '2024-03-20',
+      description: 'Making the most of your weekends without traveling far.',
+      image: 'https://images.unsplash.com/photo-1526772662000-3f88f10405ff?w=800'
+    }
+  }
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Life Adventures - Travel, Kids & DIY</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-gradient-to-br from-emerald-950 via-[#0B1F1A] to-[#0C1F15]">
+    <nav class="bg-emerald-900/80 text-emerald-50 shadow-lg border-b border-emerald-800/20 backdrop-blur-sm">
+      <div class="max-w-6xl mx-auto px-4 py-4">
+        <a href="/" class="text-2xl font-serif italic">Life Adventures</a>
+      </div>
+    </nav>
+
+    <header class="max-w-6xl mx-auto px-4 py-20 text-center">
+      <h1 class="text-5xl font-serif text-emerald-50 mb-6 italic">Life Adventures</h1>
+      <p class="text-xl text-emerald-200/80 font-sans">
+        Navigating travel dreams, motherhood, and creative projects on a budget
+      </p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-8">
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {posts.map(post => (
+          <a href={post.url} class="block group">
+            <article class="h-full bg-gradient-to-b from-emerald-900/90 to-[#0C1F15]/90 rounded-lg shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border border-emerald-500/10 hover:border-emerald-500/20">
+              {post.frontmatter.image && (
+                <div class="relative overflow-hidden h-56">
+                  <img
+                    src={post.frontmatter.image}
+                    alt={post.frontmatter.title}
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#0C1F15]/60 to-transparent"></div>
+                </div>
+              )}
+              <div class="p-6">
+                <p class="text-sm text-emerald-300/90 font-serif italic">
+                  {new Date(post.frontmatter.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </p>
+                <h2 class="text-xl font-serif mt-2 text-emerald-50 group-hover:text-emerald-200 transition-colors duration-300">
+                  {post.frontmatter.title}
+                </h2>
+                <p class="mt-3 text-emerald-200/70 line-clamp-2">{post.frontmatter.description}</p>
+              </div>
+            </article>
+          </a>
+        ))}
+      </div>
+    </main>
+
+    <footer class="mt-20 bg-emerald-900/80 text-emerald-50 py-8 border-t border-emerald-800/20 backdrop-blur-sm">
+      <div class="max-w-6xl mx-auto px-4 text-center font-serif italic">
+        Making memories, one adventure at a time
+      </div>
+    </footer>
+  </body>
+</html>
